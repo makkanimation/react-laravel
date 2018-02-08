@@ -33,10 +33,10 @@ export default class HeaderComponent extends React.Component{
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link to='/users/create' className="nav-link">Create User</Link>
+                            <Link to='/user/create' className="nav-link">Create User</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to='/users/edit/1' className="nav-link">Edit User</Link>
+                            <Link to='/user/edit/1' className="nav-link">Edit User</Link>
                         </li>
                         <li className="nav-item">
                         <a className="nav-link" href="#">Help</a>

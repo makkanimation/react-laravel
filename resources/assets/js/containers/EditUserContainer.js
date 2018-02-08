@@ -13,7 +13,7 @@ class EditUserContainer extends React.Component{
 
     getSingleUser(){
         let fn = fetchData(
-            'https://reqres.in/api/users/'+this.props.match.params.id, 
+            this.props.match.params.id, 
             'SINGLE_USER', 
             'get',''
         );
@@ -27,7 +27,7 @@ class EditUserContainer extends React.Component{
         e.preventDefault();
        // return false;
         let fn = fetchData(
-            'https://reqres.in/api/users/'+this.props.match.params.id, 
+            this.props.match.params.id, 
             'EDIT_USER', 
             'PUT', 
             {
