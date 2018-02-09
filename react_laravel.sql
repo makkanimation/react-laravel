@@ -1,288 +1,214 @@
--- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Feb 02, 2018 at 04:25 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.2
+/*
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 10.1.21-MariaDB : Database - react_laravel
+*********************************************************************
+*/
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+/*!40101 SET NAMES utf8 */;
 
+/*!40101 SET SQL_MODE=''*/;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`react_laravel` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 
---
--- Database: `react_laravel`
---
+USE `react_laravel`;
 
--- --------------------------------------------------------
+/*Table structure for table `app_migrations` */
 
---
--- Table structure for table `app_migrations`
---
+DROP TABLE IF EXISTS `app_migrations`;
 
 CREATE TABLE `app_migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `app_migrations`
---
+/*Data for the table `app_migrations` */
 
-INSERT INTO `app_migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2018_01_06_031731_create_products_table', 1),
-(4, '2018_01_27_021442_create_user_verifications_table', 2);
+insert  into `app_migrations`(`id`,`migration`,`batch`) values (1,'2014_10_12_000000_create_users_table',1);
+insert  into `app_migrations`(`id`,`migration`,`batch`) values (2,'2014_10_12_100000_create_password_resets_table',1);
+insert  into `app_migrations`(`id`,`migration`,`batch`) values (3,'2018_01_06_031731_create_products_table',1);
+insert  into `app_migrations`(`id`,`migration`,`batch`) values (4,'2018_01_27_021442_create_user_verifications_table',2);
 
--- --------------------------------------------------------
+/*Table structure for table `app_password_resets` */
 
---
--- Table structure for table `app_password_resets`
---
+DROP TABLE IF EXISTS `app_password_resets`;
 
 CREATE TABLE `app_password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
+/*Data for the table `app_password_resets` */
 
---
--- Table structure for table `app_products`
---
+/*Table structure for table `app_products` */
+
+DROP TABLE IF EXISTS `app_products`;
 
 CREATE TABLE `app_products` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
-  `availability` tinyint(1) NOT NULL
+  `availability` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/*Data for the table `app_products` */
+
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (1,'2018-01-06 03:25:48','2018-01-06 03:25:48','Dr.','Dolores voluptatibus est ut saepe possimus. Qui ut non sed sed aut est. Nulla quasi et eaque molestiae eaque ut. Corporis aut ea consequatur nostrum sequi ea.',34,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (2,'2018-01-06 03:25:48','2018-01-06 03:25:48','Mr.','Similique explicabo cum similique qui ullam. Nobis hic est aspernatur sed quos deleniti dolorem nihil.',66,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (3,'2018-01-06 03:25:48','2018-01-06 03:25:48','Prof.','Reprehenderit quis itaque mollitia odio expedita nulla delectus. Saepe fugit sed repudiandae blanditiis et aut. Harum qui fugit ipsum atque error quibusdam deleniti ut.',85,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (4,'2018-01-06 03:25:48','2018-01-06 03:25:48','Mrs.','Omnis architecto praesentium libero voluptates ratione deserunt et nostrum. Et odio nam aut. Dolores id earum est quas ut sint omnis.',26,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (5,'2018-01-06 03:25:48','2018-01-06 03:25:48','Mrs.','Quibusdam quia culpa autem fuga est hic. Officia sint assumenda facere esse. Aliquid est fugit est animi.',94,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (6,'2018-01-06 03:25:48','2018-01-06 03:25:48','Dr.','Molestiae expedita et itaque voluptate. Consequatur quasi et commodi eos. Non et sit molestiae eveniet ut dignissimos. Non non culpa dolores.',75,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (7,'2018-01-06 03:25:48','2018-01-06 03:25:48','Miss','Explicabo autem magnam harum quo. Doloremque dolores est sit molestiae adipisci eveniet fugiat adipisci. Asperiores praesentium fugiat sed. Totam non ut odit repellat magnam est.',42,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (8,'2018-01-06 03:25:48','2018-01-06 03:25:48','Prof.','Tempore aut dolorem sunt ea expedita saepe minima. Enim nemo laborum deserunt. Aut dolor est voluptatibus et.',40,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (9,'2018-01-06 03:25:48','2018-01-06 03:25:48','Mrs.','Omnis quas sed ipsam dignissimos. Possimus totam laboriosam consequatur tempora. Quasi corrupti quis odit pariatur.',15,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (10,'2018-01-06 03:25:48','2018-01-06 03:25:48','Prof.','Nobis explicabo atque magnam aut qui ea. Doloribus quos reiciendis molestiae totam dignissimos animi qui. Et ea est doloremque consequatur. Laudantium omnis saepe qui recusandae ut ut qui.',21,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (11,'2018-01-06 03:25:48','2018-01-06 03:25:48','Mr.','Libero porro aut rerum reprehenderit. Cumque est quia nostrum sint harum perspiciatis. Maxime qui consequatur qui ea sit aliquid.',11,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (12,'2018-01-06 03:25:48','2018-01-06 03:25:48','Miss','Quisquam maxime perferendis ut consequatur. Cumque beatae nesciunt repudiandae. Et similique rerum reiciendis iure soluta hic.',14,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (13,'2018-01-06 03:25:48','2018-01-06 03:25:48','Prof.','Illo inventore et officia qui vero aspernatur occaecati. Repellendus magnam aut quod magnam quibusdam officiis perferendis. Ipsam fugit nulla debitis aliquid tempore. Eum quisquam velit omnis rerum nisi.',89,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (14,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Sapiente sed placeat provident quisquam eveniet rerum et. Impedit quasi rerum voluptatem consequuntur quia eveniet. Animi velit quas et voluptate delectus sunt. Earum impedit voluptatem aliquid qui laudantium quia.',77,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (15,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Distinctio reprehenderit consequatur voluptatem. Dicta praesentium quos veniam saepe deleniti quibusdam. Quia est esse ut corrupti non quae ratione. Non fuga debitis reprehenderit quibusdam.',66,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (16,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Quia beatae dolores magni officia. Quos porro esse sunt eligendi labore consectetur et. Laboriosam beatae in et nihil adipisci similique voluptas nobis.',75,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (17,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Aut qui inventore iure voluptatem nam sed. Ipsa iure neque blanditiis ullam ea. Unde quidem hic deserunt labore ut occaecati.',19,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (18,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Maiores necessitatibus natus dolorem corrupti. Maiores aut quia dolor molestias quam impedit. Necessitatibus fugit quae natus aut fugiat.',13,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (19,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','At atque rerum et accusamus accusamus et velit. Facilis non voluptatibus alias iusto. Sit quibusdam et veniam nihil id est dicta. Nam architecto et deleniti id rerum.',21,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (20,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Libero est expedita libero fugiat commodi voluptatem exercitationem. Qui quia illum voluptates et ut labore quia. Cupiditate sint est sed est.',66,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (21,'2018-01-06 03:25:49','2018-01-06 03:25:49','Ms.','In vitae aliquam eos doloribus. Alias rem sit nemo minus deleniti. Nihil nostrum magnam debitis tempore culpa alias et.',33,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (22,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Officiis sed ducimus doloremque aperiam voluptatum suscipit enim. Aut neque tempore reprehenderit laboriosam. Illo voluptas earum beatae qui sed.',54,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (23,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Nobis magnam excepturi et delectus quod. Ad sapiente aut officia quidem rerum tempore ad. Dolorem voluptatem facere tempora ut commodi autem sint. Quis sed et quia illum provident.',24,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (24,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Qui ipsa ipsam qui reprehenderit sit numquam. Ullam aliquam nihil nobis amet. Fugiat at quia voluptatibus consequatur dolores.',48,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (25,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Totam inventore magnam in nemo voluptas doloremque eius. Consequatur pariatur ut ipsa quasi aut ut. Recusandae facilis atque consequatur velit. Molestias minima ut ab quam molestiae ullam.',78,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (26,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Velit officia architecto voluptatem sit. Sunt aliquam est quis temporibus dicta necessitatibus. Et nobis quo ea nam nulla debitis sit. Natus nisi rem et odio velit at maiores aut.',88,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (27,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Voluptatum saepe sapiente debitis est ut. Amet aperiam quod quos consequuntur aperiam iste. Iusto totam fugit voluptas. Ut et libero corporis quia distinctio facere autem. Eum aliquam id vel iure.',74,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (28,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Illum esse numquam magnam dolore. Dolorem amet ea voluptas repellendus dolorem qui odio. Nesciunt animi laudantium suscipit quia sit minus. Similique ex iste hic nemo repellendus quis quia.',19,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (29,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Et optio facilis veritatis. Vel deserunt laborum impedit consequuntur mollitia explicabo. Et totam occaecati quis qui et architecto. In dolores sint excepturi.',24,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (30,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Molestiae voluptatem aut numquam sed voluptatem voluptatem. Repellendus ipsam harum est ipsum dolor. Maiores est veniam a ex debitis exercitationem accusamus non.',74,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (31,'2018-01-06 03:25:49','2018-01-06 03:25:49','Miss','Omnis suscipit iusto excepturi et debitis enim rerum. Perspiciatis ea ipsum consectetur aut ut. Commodi sint non natus voluptas quasi. Perferendis quas sint eos porro deserunt quis in similique.',54,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (32,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Blanditiis est repellat nihil ut fugit accusantium. Aliquid qui aut quia rerum et harum.',36,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (33,'2018-01-06 03:25:49','2018-01-06 03:25:49','Miss','Eveniet maxime consequatur aut repudiandae repellendus consequatur numquam. Itaque omnis nam dignissimos. Illum accusamus omnis facilis. Aut ex quisquam id veniam nulla.',77,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (34,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Architecto error molestiae vel veniam sed unde. Ipsum rerum recusandae blanditiis repellendus ducimus voluptatem aut. Sed molestiae doloremque consequatur pariatur et illo culpa. Itaque cumque quisquam quibusdam cupiditate cupiditate sed voluptatum.',73,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (35,'2018-01-06 03:25:49','2018-01-06 03:25:49','Miss','Hic tenetur ab quod voluptatem. Expedita autem assumenda facilis. Sit nam sint velit voluptas qui sunt sequi.',3,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (36,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Reiciendis deserunt labore accusantium voluptates totam velit. Voluptatem officia sequi soluta quos at cumque. Eum asperiores et officia amet porro eum.',65,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (37,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mrs.','Est blanditiis et illo veritatis. Et impedit atque id dicta voluptas.',97,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (38,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Voluptatem illo ipsam rerum sit hic esse quos vel. Molestias facere voluptatum odit.',16,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (39,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mrs.','Nisi voluptatem perferendis quaerat ea id natus dolore dolores. Possimus maiores laudantium amet inventore delectus praesentium aut. Hic voluptate non eveniet amet sunt neque ut.',31,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (40,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Ratione repudiandae est at aut. Id enim tenetur laboriosam praesentium. Et id aspernatur ea quos. Ea eum aut et est molestiae rem magnam.',17,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (41,'2018-01-06 03:25:49','2018-01-06 03:25:49','Ms.','Facere eligendi itaque corporis repudiandae. Et voluptatem et dolorem est voluptatem dolores ab ea.',68,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (42,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Nisi qui quia at ut dolor deserunt at. Iure tempora et impedit vero ut ut libero fuga.',65,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (43,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Autem fuga rerum sit nemo facere rerum repudiandae officiis. Cumque omnis doloribus quisquam aut. Nobis quia ullam qui similique.',64,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (44,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Reiciendis ea ad iusto debitis. Et aut consequuntur exercitationem commodi vel atque eveniet. Enim minima quidem sunt eos fugit libero magnam optio.',66,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (45,'2018-01-06 03:25:49','2018-01-06 03:25:49','Prof.','Consequatur sint quisquam enim odio ratione quis. Molestiae in magni explicabo. Quis voluptate mollitia aut aut optio aliquam.',43,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (46,'2018-01-06 03:25:49','2018-01-06 03:25:49','Dr.','Itaque placeat voluptate voluptate. Repudiandae impedit molestiae voluptatum velit nihil. Culpa neque quo est voluptatem. Quae reprehenderit expedita mollitia enim et id ipsam.',10,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (47,'2018-01-06 03:25:49','2018-01-06 03:25:49','Mr.','Aut rerum occaecati ut inventore. Voluptatem repellendus voluptatibus rerum ipsa. Hic in esse nisi maxime accusamus rerum at.',67,1);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (48,'2018-01-06 03:25:50','2018-01-06 03:25:50','Dr.','Aut voluptatem hic voluptas. Et error eaque deleniti sit eius. Omnis dolor ut excepturi est laborum labore.',45,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (49,'2018-01-06 03:25:50','2018-01-06 03:25:50','Miss','Et quisquam sed consequatur numquam consequatur. Nostrum voluptatem et voluptas quidem sequi iure quos. Officia aperiam eos unde dicta cupiditate. Exercitationem perspiciatis dolores quaerat non explicabo officiis hic rerum.',50,0);
+insert  into `app_products`(`id`,`created_at`,`updated_at`,`title`,`description`,`price`,`availability`) values (50,'2018-01-06 03:25:50','2018-01-06 03:25:50','Ms.','Cumque voluptas vero labore libero assumenda. Necessitatibus ut magnam asperiores sint et voluptatem. Modi veritatis dolorem et incidunt eaque.',12,0);
+
+/*Table structure for table `app_user_verifications` */
+
+DROP TABLE IF EXISTS `app_user_verifications`;
+
+CREATE TABLE `app_user_verifications` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_verifications_user_id_foreign` (`user_id`),
+  CONSTRAINT `user_verifications_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `app_users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `app_products`
---
+/*Data for the table `app_user_verifications` */
 
-INSERT INTO `app_products` (`id`, `created_at`, `updated_at`, `title`, `description`, `price`, `availability`) VALUES
-(1, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Dr.', 'Dolores voluptatibus est ut saepe possimus. Qui ut non sed sed aut est. Nulla quasi et eaque molestiae eaque ut. Corporis aut ea consequatur nostrum sequi ea.', 34, 1),
-(2, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Mr.', 'Similique explicabo cum similique qui ullam. Nobis hic est aspernatur sed quos deleniti dolorem nihil.', 66, 1),
-(3, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Prof.', 'Reprehenderit quis itaque mollitia odio expedita nulla delectus. Saepe fugit sed repudiandae blanditiis et aut. Harum qui fugit ipsum atque error quibusdam deleniti ut.', 85, 1),
-(4, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Mrs.', 'Omnis architecto praesentium libero voluptates ratione deserunt et nostrum. Et odio nam aut. Dolores id earum est quas ut sint omnis.', 26, 1),
-(5, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Mrs.', 'Quibusdam quia culpa autem fuga est hic. Officia sint assumenda facere esse. Aliquid est fugit est animi.', 94, 1),
-(6, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Dr.', 'Molestiae expedita et itaque voluptate. Consequatur quasi et commodi eos. Non et sit molestiae eveniet ut dignissimos. Non non culpa dolores.', 75, 1),
-(7, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Miss', 'Explicabo autem magnam harum quo. Doloremque dolores est sit molestiae adipisci eveniet fugiat adipisci. Asperiores praesentium fugiat sed. Totam non ut odit repellat magnam est.', 42, 0),
-(8, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Prof.', 'Tempore aut dolorem sunt ea expedita saepe minima. Enim nemo laborum deserunt. Aut dolor est voluptatibus et.', 40, 0),
-(9, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Mrs.', 'Omnis quas sed ipsam dignissimos. Possimus totam laboriosam consequatur tempora. Quasi corrupti quis odit pariatur.', 15, 1),
-(10, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Prof.', 'Nobis explicabo atque magnam aut qui ea. Doloribus quos reiciendis molestiae totam dignissimos animi qui. Et ea est doloremque consequatur. Laudantium omnis saepe qui recusandae ut ut qui.', 21, 0),
-(11, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Mr.', 'Libero porro aut rerum reprehenderit. Cumque est quia nostrum sint harum perspiciatis. Maxime qui consequatur qui ea sit aliquid.', 11, 1),
-(12, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Miss', 'Quisquam maxime perferendis ut consequatur. Cumque beatae nesciunt repudiandae. Et similique rerum reiciendis iure soluta hic.', 14, 1),
-(13, '2018-01-05 21:55:48', '2018-01-05 21:55:48', 'Prof.', 'Illo inventore et officia qui vero aspernatur occaecati. Repellendus magnam aut quod magnam quibusdam officiis perferendis. Ipsam fugit nulla debitis aliquid tempore. Eum quisquam velit omnis rerum nisi.', 89, 0),
-(14, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Sapiente sed placeat provident quisquam eveniet rerum et. Impedit quasi rerum voluptatem consequuntur quia eveniet. Animi velit quas et voluptate delectus sunt. Earum impedit voluptatem aliquid qui laudantium quia.', 77, 0),
-(15, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Distinctio reprehenderit consequatur voluptatem. Dicta praesentium quos veniam saepe deleniti quibusdam. Quia est esse ut corrupti non quae ratione. Non fuga debitis reprehenderit quibusdam.', 66, 0),
-(16, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Quia beatae dolores magni officia. Quos porro esse sunt eligendi labore consectetur et. Laboriosam beatae in et nihil adipisci similique voluptas nobis.', 75, 0),
-(17, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Aut qui inventore iure voluptatem nam sed. Ipsa iure neque blanditiis ullam ea. Unde quidem hic deserunt labore ut occaecati.', 19, 0),
-(18, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Maiores necessitatibus natus dolorem corrupti. Maiores aut quia dolor molestias quam impedit. Necessitatibus fugit quae natus aut fugiat.', 13, 0),
-(19, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'At atque rerum et accusamus accusamus et velit. Facilis non voluptatibus alias iusto. Sit quibusdam et veniam nihil id est dicta. Nam architecto et deleniti id rerum.', 21, 1),
-(20, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Libero est expedita libero fugiat commodi voluptatem exercitationem. Qui quia illum voluptates et ut labore quia. Cupiditate sint est sed est.', 66, 0),
-(21, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Ms.', 'In vitae aliquam eos doloribus. Alias rem sit nemo minus deleniti. Nihil nostrum magnam debitis tempore culpa alias et.', 33, 0),
-(22, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Officiis sed ducimus doloremque aperiam voluptatum suscipit enim. Aut neque tempore reprehenderit laboriosam. Illo voluptas earum beatae qui sed.', 54, 1),
-(23, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Nobis magnam excepturi et delectus quod. Ad sapiente aut officia quidem rerum tempore ad. Dolorem voluptatem facere tempora ut commodi autem sint. Quis sed et quia illum provident.', 24, 1),
-(24, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Qui ipsa ipsam qui reprehenderit sit numquam. Ullam aliquam nihil nobis amet. Fugiat at quia voluptatibus consequatur dolores.', 48, 1),
-(25, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Totam inventore magnam in nemo voluptas doloremque eius. Consequatur pariatur ut ipsa quasi aut ut. Recusandae facilis atque consequatur velit. Molestias minima ut ab quam molestiae ullam.', 78, 1),
-(26, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Velit officia architecto voluptatem sit. Sunt aliquam est quis temporibus dicta necessitatibus. Et nobis quo ea nam nulla debitis sit. Natus nisi rem et odio velit at maiores aut.', 88, 1),
-(27, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Voluptatum saepe sapiente debitis est ut. Amet aperiam quod quos consequuntur aperiam iste. Iusto totam fugit voluptas. Ut et libero corporis quia distinctio facere autem. Eum aliquam id vel iure.', 74, 1),
-(28, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Illum esse numquam magnam dolore. Dolorem amet ea voluptas repellendus dolorem qui odio. Nesciunt animi laudantium suscipit quia sit minus. Similique ex iste hic nemo repellendus quis quia.', 19, 1),
-(29, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Et optio facilis veritatis. Vel deserunt laborum impedit consequuntur mollitia explicabo. Et totam occaecati quis qui et architecto. In dolores sint excepturi.', 24, 0),
-(30, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Molestiae voluptatem aut numquam sed voluptatem voluptatem. Repellendus ipsam harum est ipsum dolor. Maiores est veniam a ex debitis exercitationem accusamus non.', 74, 1),
-(31, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Miss', 'Omnis suscipit iusto excepturi et debitis enim rerum. Perspiciatis ea ipsum consectetur aut ut. Commodi sint non natus voluptas quasi. Perferendis quas sint eos porro deserunt quis in similique.', 54, 1),
-(32, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Blanditiis est repellat nihil ut fugit accusantium. Aliquid qui aut quia rerum et harum.', 36, 0),
-(33, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Miss', 'Eveniet maxime consequatur aut repudiandae repellendus consequatur numquam. Itaque omnis nam dignissimos. Illum accusamus omnis facilis. Aut ex quisquam id veniam nulla.', 77, 1),
-(34, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Architecto error molestiae vel veniam sed unde. Ipsum rerum recusandae blanditiis repellendus ducimus voluptatem aut. Sed molestiae doloremque consequatur pariatur et illo culpa. Itaque cumque quisquam quibusdam cupiditate cupiditate sed voluptatum.', 73, 0),
-(35, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Miss', 'Hic tenetur ab quod voluptatem. Expedita autem assumenda facilis. Sit nam sint velit voluptas qui sunt sequi.', 3, 1),
-(36, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Reiciendis deserunt labore accusantium voluptates totam velit. Voluptatem officia sequi soluta quos at cumque. Eum asperiores et officia amet porro eum.', 65, 1),
-(37, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mrs.', 'Est blanditiis et illo veritatis. Et impedit atque id dicta voluptas.', 97, 0),
-(38, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Voluptatem illo ipsam rerum sit hic esse quos vel. Molestias facere voluptatum odit.', 16, 0),
-(39, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mrs.', 'Nisi voluptatem perferendis quaerat ea id natus dolore dolores. Possimus maiores laudantium amet inventore delectus praesentium aut. Hic voluptate non eveniet amet sunt neque ut.', 31, 0),
-(40, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Ratione repudiandae est at aut. Id enim tenetur laboriosam praesentium. Et id aspernatur ea quos. Ea eum aut et est molestiae rem magnam.', 17, 0),
-(41, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Ms.', 'Facere eligendi itaque corporis repudiandae. Et voluptatem et dolorem est voluptatem dolores ab ea.', 68, 0),
-(42, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Nisi qui quia at ut dolor deserunt at. Iure tempora et impedit vero ut ut libero fuga.', 65, 0),
-(43, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Autem fuga rerum sit nemo facere rerum repudiandae officiis. Cumque omnis doloribus quisquam aut. Nobis quia ullam qui similique.', 64, 0),
-(44, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Reiciendis ea ad iusto debitis. Et aut consequuntur exercitationem commodi vel atque eveniet. Enim minima quidem sunt eos fugit libero magnam optio.', 66, 1),
-(45, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Prof.', 'Consequatur sint quisquam enim odio ratione quis. Molestiae in magni explicabo. Quis voluptate mollitia aut aut optio aliquam.', 43, 0),
-(46, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Dr.', 'Itaque placeat voluptate voluptate. Repudiandae impedit molestiae voluptatum velit nihil. Culpa neque quo est voluptatem. Quae reprehenderit expedita mollitia enim et id ipsam.', 10, 0),
-(47, '2018-01-05 21:55:49', '2018-01-05 21:55:49', 'Mr.', 'Aut rerum occaecati ut inventore. Voluptatem repellendus voluptatibus rerum ipsa. Hic in esse nisi maxime accusamus rerum at.', 67, 1),
-(48, '2018-01-05 21:55:50', '2018-01-05 21:55:50', 'Dr.', 'Aut voluptatem hic voluptas. Et error eaque deleniti sit eius. Omnis dolor ut excepturi est laborum labore.', 45, 0),
-(49, '2018-01-05 21:55:50', '2018-01-05 21:55:50', 'Miss', 'Et quisquam sed consequatur numquam consequatur. Nostrum voluptatem et voluptas quidem sequi iure quos. Officia aperiam eos unde dicta cupiditate. Exercitationem perspiciatis dolores quaerat non explicabo officiis hic rerum.', 50, 0),
-(50, '2018-01-05 21:55:50', '2018-01-05 21:55:50', 'Ms.', 'Cumque voluptas vero labore libero assumenda. Necessitatibus ut magnam asperiores sint et voluptatem. Modi veritatis dolorem et incidunt eaque.', 12, 0);
+/*Table structure for table `app_users` */
 
--- --------------------------------------------------------
-
---
--- Table structure for table `app_users`
---
+DROP TABLE IF EXISTS `app_users`;
 
 CREATE TABLE `app_users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `designation` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postal_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `is_verified` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `is_verified` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `app_users`
---
+/*Data for the table `app_users` */
 
-INSERT INTO `app_users` (`id`, `picture`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `is_verified`) VALUES
-(4, 'b12e4856e088d2fe569fb536b5998798.jpg', 'Manish Kumar', 'makkanimation@gmail.com', '$2y$10$Oj1WUFpb8byYyAEBp5ThJub1ERnSe4e8F4gDFAf8IxbCxxJUqgKrS', NULL, '2018-01-26 21:24:55', '2018-01-26 21:26:17', 1),
-(55, '6b0f641c72f99dbb3380394d046b661b.jpg', 'Zechariah Schultz', 'amina58@hotmail.com', '$2y$10$QoAme/F5ooEERflrP7q8pehWzYh75y0Tpxu2VrwncGiL5yZ4dipku', NULL, '2018-01-28 12:47:38', '2018-01-28 12:47:38', 1),
-(56, 'c577c81d80fc8adc19109e1c1eb74b03.jpg', 'Katlyn Bruen', 'abernathy.helen@yahoo.com', '$2y$10$1D7RStnn69mhT5DHtOCV3OzvSJh3lPRdmqWlngYbmbanlyrLYInLi', NULL, '2018-01-28 12:47:39', '2018-01-28 12:47:39', 1),
-(57, '89dac4f0784bcc12eccd9e3a3bb286e7.jpg', 'Modesto McGlynn', 'dgrant@yahoo.com', '$2y$10$ewujZ5zStC2e4cpWArVpjOYegOoH4nWDSWyYtaQ6amYvwnf4CiGuu', NULL, '2018-01-28 12:47:40', '2018-01-28 12:47:40', 1),
-(58, '04f0e4ccfdb1a277d788a05055fddb79.jpg', 'Prof. Orin Pouros DDS', 'nolan.bettie@shanahan.info', '$2y$10$6dNp2WMs2YqcDZbogI7esOIsN.kFEBWfMXv3E9OLL9X5Bcc/kiPgq', NULL, '2018-01-28 12:47:42', '2018-01-28 12:47:42', 1),
-(59, 'eee800595ffab7521554d1eead3fc4e8.jpg', 'Giovani Tromp MD', 'alfonzo.mertz@yahoo.com', '$2y$10$aheFN3I6HGmYyr3r33SPgu9PfFV3ZZMoyGeKW1tnirx5goxF7910q', NULL, '2018-01-28 12:47:43', '2018-01-28 12:47:43', 1),
-(60, '55c7da99a56f59ebcc803f5e9215ca53.jpg', 'Mrs. Rosalee Waters V', 'yzemlak@marvin.org', '$2y$10$qfXiuhCAdU0muYrmIX/ueOY99Pg50lq.pQDE0jofpbj64hwuzrZaq', NULL, '2018-01-28 12:47:44', '2018-01-28 12:47:44', 1),
-(61, '776adfa47a470577b05cf879e3e071e0.jpg', 'Fanny Lubowitz', 'derek.dickens@gmail.com', '$2y$10$4xrYkKpgB.BbnN8.lovEKONlJWVlXeKJ2dtrmBTmqnaaA2/0XBPWK', NULL, '2018-01-28 12:47:45', '2018-01-28 12:47:45', 1),
-(62, 'f56b27e342fe191fd06685ee96448377.jpg', 'Tiana Simonis', 'aveum@reichert.com', '$2y$10$8WtRq0Zc6GtAhOiaiiEWYuvFN5GckhtR5DQEbsJRJNNcKBTq6s/AS', NULL, '2018-01-28 12:47:47', '2018-01-28 12:47:47', 1),
-(63, 'a4efb8ada0fe43e2843d3a39524699b3.jpg', 'Dr. Arianna Mayert Jr.', 'devon.langosh@hotmail.com', '$2y$10$z557xQ939551WdTR6.qK5OJU0kurtVAo/tscFw3DsdcFBw2.LPjpe', NULL, '2018-01-28 12:47:48', '2018-01-28 12:47:48', 1),
-(64, '62ad91c843ca0ecf4ab515aee1475294.jpg', 'Alexzander Lindgren', 'leonora.hudson@trantow.com', '$2y$10$0D/k7AhzehD7UosD84lxZOL0jo/Nczyxh13e16nyWACEAs/Fs21dK', NULL, '2018-01-28 12:47:49', '2018-01-28 12:47:49', 1),
-(65, '8be0c38add9bb306aa14a1668796433d.jpg', 'Prof. Kenneth Hoeger', 'sigrid45@hotmail.com', '$2y$10$nlARNZGECqupG1RrrvBGX.d2OvjLZjPq5rTUXAMaeDiL8eGR1u0tW', NULL, '2018-01-28 12:47:50', '2018-01-28 12:47:50', 1),
-(66, '728931f9c3847cc27cef5dce02c69019.jpg', 'Prof. Weldon Aufderhar III', 'tpollich@gmail.com', '$2y$10$WZ6XUdVwoWxhHP0kFwlUH.HeauxbE87Ydv.RYE2EnCRSV3QqOnKyC', NULL, '2018-01-28 12:47:51', '2018-01-28 12:47:51', 1),
-(67, '924b8cd41f1550976ef3ce2a7df799d1.jpg', 'Jared Paucek II', 'schowalter.marcelo@gmail.com', '$2y$10$Dn90pjIv6TjgY0Ji1TQnWON8mQZBll7xTrrIhBnklWaFvaFbbWueK', NULL, '2018-01-28 12:47:52', '2018-01-28 12:47:52', 1),
-(68, '4386b0f58cda5d1d8219ca7b4cf00cf0.jpg', 'Chaya Boyle', 'harmony54@gmail.com', '$2y$10$j0gJIm673V7x3ebDlCy1wOfK3YAraiTkbrEdsx2XSa4lNIi2h/s8K', NULL, '2018-01-28 12:47:53', '2018-01-28 12:47:53', 1),
-(69, '36137f612b3c590f7e7180bdb751c404.jpg', 'Dr. Alva Bosco', 'jeremy.eichmann@yahoo.com', '$2y$10$lTKJWxgq1kq03TiLFIxqFOhGzThUTuq.vETGVo/oVcQwMXbw5pEua', NULL, '2018-01-28 12:47:54', '2018-01-28 12:47:54', 1),
-(70, 'bc07a390611c0b5271a417b547752030.jpg', 'Miss Aurelia Nolan I', 'harmon32@yahoo.com', '$2y$10$oSQziNvg7JcHSdJ44R9nKu.uZczGXoGXeiMJuiiZRnWjGJhdjTLSe', NULL, '2018-01-28 12:48:00', '2018-01-28 12:48:00', 1),
-(71, '5d9b343174414ad33f1226dc331565c2.jpg', 'Flossie Heathcote', 'schulist.valentin@okuneva.com', '$2y$10$9Wr4BTiZP7youl.bs3nw5u6E3hnhDCvA9LLk6DrqrfN5QfdrV2UlG', NULL, '2018-01-28 12:48:01', '2018-01-28 12:48:01', 1),
-(72, 'b12e4856e088d2fe569fb536b5998798.jpg', 'Kristy Goyette', 'ucrona@yahoo.com', '$2y$10$lvXa2bvFA3RKeVdb6jWsr.Ft7E5s8W5VZ0IaFMvy/2UgVFxhAI1am', NULL, '2018-01-28 12:48:02', '2018-01-28 12:48:02', 1),
-(73, '8bc4c2b747352b5cbe62b3cb10d76e41.jpg', 'Devonte Klein', 'katrina40@larkin.net', '$2y$10$ODqmws0MPqqP.m5yoxMEAe3hWU6aorK0aOtRXjtnY9tcFMVZbOlBy', NULL, '2018-01-28 12:48:04', '2018-01-28 12:48:04', 1),
-(74, 'c024c681f08f9dd05ed6f19cd16dddb3.jpg', 'Jesse Predovic', 'farrell.gavin@gmail.com', '$2y$10$8vNhCbee.emfaW3AFlfyCeCKdtWkI532WcL/gknz88WM/zPEWtJWe', NULL, '2018-01-28 12:48:05', '2018-01-28 12:48:05', 1),
-(75, '72de2e4cc3d3f10ff2603783ce166bf6.jpg', 'Keyon Kling', 'enrico.blick@hotmail.com', '$2y$10$oFh4OjhUOI4ZyWuYqsC4v.2deBQT7cCFeYWEZ88S0jRcb0.VDo/Pq', NULL, '2018-01-28 12:48:06', '2018-01-28 12:48:06', 1),
-(76, '90323e89077f3aeaab106ea24b536b63.jpg', 'Kendra Waelchi V', 'devan71@yahoo.com', '$2y$10$zSC5JMXHLCSRyJfTdh1zTOo6UsN4XrK9/aQuaPYTJvdclZGzyFv2.', NULL, '2018-01-28 12:48:07', '2018-01-28 12:48:07', 1),
-(77, 'd55cc5c6c4a29ae5272604fa19db5e82.jpg', 'Lupe Bode', 'turner.ewell@hotmail.com', '$2y$10$5dYt5.dqpGCTZ.fc5jyAruBqXqpxe0QpEwUNBs6ws9ZuJeFMDo99i', NULL, '2018-01-28 12:48:08', '2018-01-28 12:48:08', 1),
-(78, '580411769ab9dd43777c7062677088f1.jpg', 'Prof. Rosetta Schroeder Jr.', 'summer72@farrell.com', '$2y$10$7FL5qFOsv4hwBxWf3voGDONE/oE5NFlSwpzh5qMnfkqkK7kxMDS/i', NULL, '2018-01-28 12:48:09', '2018-01-28 12:48:09', 1),
-(79, 'd0c544e61f8585ba641a618ac53fe9b8.jpg', 'Dr. Mason Brakus Sr.', 'awaters@yahoo.com', '$2y$10$O1mxIBxfFiwu.EVO9qqGj.lxyUZTwEWulAe8AP2ASsxyEP5TsOiZO', NULL, '2018-01-28 12:48:10', '2018-01-28 12:48:10', 1),
-(80, '7747235d0970f1f8ae42a108fd941a28.jpg', 'Mr. Colin Stanton V', 'hmurphy@yahoo.com', '$2y$10$j7SQEJ4AnbT3G2IpJSlHX.pCbVRChjPVDJ1aAkmGngjoq25Qypfum', NULL, '2018-01-28 12:48:11', '2018-01-28 12:48:11', 1),
-(81, 'f0efaa6d563dffb643e568e5c610446f.jpg', 'Mrs. Genevieve Cummerata III', 'cooper.mccullough@connelly.info', '$2y$10$zg9NZE19BWceZxv/OqKWI.5RDBwBurIgqhIy0cchwDlcLCAIRXOPK', NULL, '2018-01-28 12:48:13', '2018-01-28 12:48:13', 1),
-(82, 'c6907fc5ef56ec9a4a2aa4feae4bd7f3.jpg', 'Dr. Joel Parker', 'rdibbert@wilkinson.com', '$2y$10$NOj1LnxE0zKv8bELz3pMze.NaAhVMSY385IN.Vl2P5tzceW/O9Cvm', NULL, '2018-01-28 12:48:14', '2018-01-28 12:48:14', 1),
-(83, 'e48ed84fa4dbba6bcfe680748b985c7a.jpg', 'Rudy Anderson', 'cassin.hershel@hotmail.com', '$2y$10$Md3wiMgfBz445v1gWtJIGeF7sQJYLVsMur1ldvOZ7et1SbpzrqMQm', NULL, '2018-01-28 12:48:16', '2018-01-28 12:48:16', 1),
-(84, '1606944e8a2606949482bced2a10df32.jpg', 'Koby Huel', 'adriana.halvorson@hotmail.com', '$2y$10$TzvSLC7ctdhhSfFtxZ.15OigNj.pLNyTLcQYxIq1LDTcg8fzqzp.C', NULL, '2018-01-28 12:48:17', '2018-01-28 12:48:17', 1),
-(85, 'a2d6efc4b875bb9bbcce4010084a9ba0.jpg', 'Prof. Abby Lakin', 'david74@hills.com', '$2y$10$.gt6Vkv8.jCu3mN9wf4ubuut79dc/fA6mIcp6Q95.QNEHJFt0JhtG', NULL, '2018-01-28 12:48:18', '2018-01-28 12:48:18', 1),
-(86, '55565035759a0b89e45ed9ef89d2f671.jpg', 'Jasmin Dietrich', 'arvel57@bashirian.net', '$2y$10$oEBXs2rSuxNJvRuiOXk7MOThEh3LcHKNWjf7bPK868aDEJJq77WGS', NULL, '2018-01-28 12:48:22', '2018-01-28 12:48:22', 1),
-(87, '44a40d44fecfb83ca5b2d23c1cdb0860.jpg', 'Dr. Reymundo Mosciski DDS', 'jazlyn.koch@marks.info', '$2y$10$lmjnaLUSqi76x67w8QDe/ODuDi52xpEA8u7QZm.bDkNIDsygsaJpa', NULL, '2018-01-28 12:48:26', '2018-01-28 12:48:26', 1),
-(88, 'cd0ba193322c0568d3324152beca04e8.jpg', 'Reina Hackett', 'kailee.wintheiser@padberg.com', '$2y$10$vvItjY84Jdr2CkcI6tBpCOlwDufFiUXXAItaq3uezz8AwRulTooMa', NULL, '2018-01-28 12:48:27', '2018-01-28 12:48:27', 1),
-(89, '62201c7b129cc58c8b508fed8de501dd.jpg', 'Kirstin Jerde', 'iwolff@hotmail.com', '$2y$10$YKb9WfwDv859GDP.BoBVTOWWAPudLwG/45veGq5zBUkzi/yJupPMu', NULL, '2018-01-28 12:48:28', '2018-01-28 12:48:28', 1),
-(90, '400147104d5686a6009c26a474efe8f7.jpg', 'Euna Price', 'moore.winifred@bernhard.info', '$2y$10$x7A9d/qD7LNipMtRSifM8uyon1AASkI4lAtOll75b50QUn7WjRBdW', NULL, '2018-01-28 12:48:29', '2018-01-28 12:48:29', 1),
-(91, '490b8a64c5603a9cd3a9be6504c850a0.jpg', 'Tavares Hartmann', 'alfreda.aufderhar@stroman.com', '$2y$10$6Z96L5K4AK0OepwzMHkTUuehmRnvALWN90tUg1awvrhwuC5VFv/7i', NULL, '2018-01-28 12:48:30', '2018-01-28 12:48:30', 1),
-(92, '79aaf47842e81d754365e571851af7b7.jpg', 'Noemi Johnston IV', 'amya60@jast.org', '$2y$10$ka0W7UsK1072nHpo.lLhLul6gncjh7rUjnNlGw7ijEjWELHTu0eGu', NULL, '2018-01-28 12:48:32', '2018-01-28 12:48:32', 1),
-(93, '561310edddeb40e627edc44c157ec23f.jpg', 'Kameron Grady', 'lola.bashirian@hotmail.com', '$2y$10$tScwvIZEixBl0PBQ5s/wmO7UEooebs8Z.k9QpKlImNTJQyVRxIGf2', NULL, '2018-01-28 12:48:33', '2018-01-28 12:48:33', 1),
-(94, 'bfdbd47b76823d5a010daf56e29a0d60.jpg', 'Royal Dach', 'joe43@hotmail.com', '$2y$10$7kCCp7gqJF0qskCgAwpP6ORsnx6QMECqLhAf17TlV0LlzB5V7vWO2', NULL, '2018-01-28 12:48:34', '2018-01-28 12:48:34', 1),
-(95, 'f10904752fbed435c6a0bf8dba02286a.jpg', 'Cletus Franecki DVM', 'trace11@schroeder.com', '$2y$10$6y5eC.ulEshwEc4FcjNB1.u5WWWQaExrymNTSsVSdDenEk2g.KZdu', NULL, '2018-01-28 12:48:35', '2018-01-28 12:48:35', 1),
-(96, '86917513c94ec79c084876af229a4f7e.jpg', 'Brody Welch', 'antwon.towne@gmail.com', '$2y$10$VUXtBnLfe2CzBN8pwSAKaumG5plrClBCz5xJ2wjSl3u7T.2HNmBsu', NULL, '2018-01-28 12:48:36', '2018-01-28 12:48:36', 1),
-(97, '9142f89d51e8e385d5bcd415e08bd46a.jpg', 'Prof. Ulises Monahan', 'ahmad61@hotmail.com', '$2y$10$5UHCr7Pw6x/UN7dhiePukOwDq9ToXw/q2Yb4C1ncP6VJ/yvskdCO6', NULL, '2018-01-28 12:48:38', '2018-01-28 12:48:38', 1),
-(98, '555d8626b76bdb00f38513d9451b7a22.jpg', 'Verda Welch', 'everette.walker@douglas.info', '$2y$10$Sm/XBe3tl.Q46E1S1gyKIOlJu7XVqgKQM5NasIw1iFVPqPbAG3d3S', NULL, '2018-01-28 12:48:39', '2018-01-28 12:48:39', 1),
-(99, '2032d323496590fda24eb189e32bc658.jpg', 'Al Murphy', 'max87@emard.com', '$2y$10$zY/fGGHLljrV0tDiGrwV8urjdoI8fHoIFjL0047rO/2Nk5aQRjglm', NULL, '2018-01-28 12:48:40', '2018-01-28 12:48:40', 1),
-(100, 'b7b047bcb71f03d71d99b4db4952e904.jpg', 'Earnest Buckridge', 'alessandra11@yahoo.com', '$2y$10$4CCkvI/7YkNp2tpwlDWbP.EvCM0xHrniaNxfJf10y7Q9plgf1JN..', NULL, '2018-01-28 12:48:41', '2018-01-28 12:48:41', 1),
-(101, '902438f7957a0de8cdbbcf515e30a1a7.jpg', 'Dr. Joy Blick', 'krystel72@mills.com', '$2y$10$dH/FFQtnHSixSjSIL7/35u.YfRB3wMBCpzu1vtZ9gZr59VatnHl9a', NULL, '2018-01-28 12:48:42', '2018-01-28 12:48:42', 1),
-(102, '77bb12efcdda80831f8c53bf0f32f085.jpg', 'Jettie Gibson', 'cordell11@gmail.com', '$2y$10$eyl/LLAoDjbFeDw770Njn.g.edSQzQJZc3pwrRSOF9fS4yq0hp252', NULL, '2018-01-28 12:48:43', '2018-01-28 12:48:43', 1),
-(103, '6a532c075226aef2da8ffaa1ca030142.jpg', 'Bryce Schultz', 'pcormier@legros.com', '$2y$10$sDvhIKZlfVO2Ceq3fpGS5eFX9NRs3EJCMZm9XPXStXJzHW5vusd6m', NULL, '2018-01-28 12:48:44', '2018-01-28 12:48:44', 1),
-(104, '8cf8cd55c679ee8bb09cc2e2c6a038f2.jpg', 'Prof. Chaya Walker I', 'van.padberg@gmail.com', '$2y$10$EPYLSsXiIUh4RvQCbCJSm.6gLsAk8T0SdJ98SwhV1vRj4YtfGDnZC', NULL, '2018-01-28 12:48:45', '2018-01-28 12:48:45', 1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (4,'b12e4856e088d2fe569fb536b5998798.jpg','Manish Kumar','makkanimation@gmail.com','$2y$10$Oj1WUFpb8byYyAEBp5ThJub1ERnSe4e8F4gDFAf8IxbCxxJUqgKrS',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2018-01-27 02:54:55','2018-01-27 02:56:17',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (5,'57acc270eff33f1ce9ac5839fe50c9c4.jpg','Justice Bernhard','annetta.parisian@hotmail.com','$2y$10$anG5e6YwnsUFBlTxx7vLRertuEL194WBU8Yi9zSd2o6Ln33udz43K',NULL,'Manager of Food Preparation','+1-882-852-9337','556 Boyle WayGerholdmouth, MN 39495','44968','India','Culpa neque quas et consequatur. Eius non voluptatum quia quod vitae. Sed necessitatibus esse minima sit. Voluptatem autem earum corporis rerum. Autem sequi facere dignissimos.','2018-02-09 12:46:45','2018-02-09 14:47:35',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (6,'74006d2baf269adaf4f8852399cdb12c.jpg','Alberrrrrrt Gislasooooon','dock.goodwin@llllarkin.info','$2y$10$yYco44YPMF.0rvg6oUYnW.bZb3kucKWL8RRaIoPmKewXLVnvpt8cK',NULL,'Medical Records TTTTTechnician','1-490-351-9716 x0000','5042 Olin HarborsThielland, LA 43000','18936-7000','India','Voluptatibus illo excepturi repudiandae. Voluptatem voluptatem et nulla. Aut qui alias porro deleniti expedita. Excepturi nulla fuga architecto non omnis iusto reiciendisssssssss.','2018-02-09 12:46:46','2018-02-09 14:45:25',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (7,'879acaef4baf1fe51e0eae4920cf69e7.jpg','Miss Katlynn White III','bogisich.america@jacobs.com','$2y$10$.D0QT/QwfuH23WzUrXvTTuTbQVoPKZEDG4ZOe3FuBb4uJAN3W2GWa',NULL,'Insurance Policy Processing Clerk','(264) 384-9763','464 Daisha Rapid Apt. 993\nJarredside, VA 34071','44573-8518','Rwanda','Aspernatur ex dolor quisquam. Quam veritatis laborum quasi quis animi quibusdam. Sunt odit vel quas et quia sit. Quos odio quia pariatur quisquam atque aliquam est aperiam.','2018-02-09 12:46:47','2018-02-09 12:46:47',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (8,'cd5bb8609765b03490730eb5eb961c1c.jpg','Freddie Cormier','nova.borer@runte.net','$2y$10$FZzSvtDwv4XrX15ocLPqHusVbKv4fahxDC4aLzAE.cIVBnmf3LsYO',NULL,'Nuclear Equipment Operation Technician','380-638-0536 x36173','421 Rodrick Branch\nEast Kattie, UT 33833','07271','Qatar','Fuga magni animi ratione debitis molestias. Magnam consectetur sit eaque asperiores ipsa et et. Ut quia sequi porro aut suscipit. Voluptatem eum sit velit adipisci.','2018-02-09 12:46:49','2018-02-09 12:46:49',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (9,'5ae9d9e297ef1f2e732612e9540fa579.jpg','Dr. Sammie Rutherford PhD','agustin85@hotmail.com','$2y$10$B83N3.AMgvhR49EMjUIH9uZ2UERDgEvrUIDV/O7UfJ16BEAuVabke',NULL,'Telecommunications Line Installer','1-482-989-1043 x1638','696 Schowalter Alley Apt. 728\nManteville, IA 69021-3207','12797','Lao People\'s Democratic Republic','Molestias aut adipisci dolor voluptatem perspiciatis in ut. Id maiores tempore nesciunt qui ut doloremque et. Aut maiores odit ex dolorum. Praesentium blanditiis quam eos eveniet eum occaecati modi.','2018-02-09 12:46:50','2018-02-09 12:46:50',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (10,'7c01d7b7910f14e3d8feccdf45b30fdf.jpg','Charlene Stracke III','frieda95@jakubowski.net','$2y$10$TSMtIT2d4e72zhXr0k02ju2S./XPsMsAC3H3arEk.bWhkZRBEE/LO',NULL,'Psychology Teacher','501.686.3685','286 Stokes Union Apt. 002\nGiovaniport, PA 94489','22417','Bahamas','Ullam earum adipisci dolores qui laborum quibusdam nostrum. Totam a ut quasi vel ipsam aut qui. Velit libero eum nam consequuntur. Rem dicta adipisci mollitia impedit.','2018-02-09 12:46:51','2018-02-09 12:46:51',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (11,'0f7a09a114051bbacb1d97a28d3e988e.jpg','Zane Kreiger','ubeier@nitzsche.biz','$2y$10$L08eU8YPpAO1o5LdTgZotulXbiTn3HtWUMbQ5EHHQ8zQtNZJImoFK',NULL,'Chef','1-831-898-3312 x484','611 Friedrich Roads Apt. 708\nPagacburgh, RI 10431-1190','77998-9874','Congo','Ad et ut delectus sed ipsa. Culpa sit et eaque qui quasi laboriosam quod. Quaerat perspiciatis quae accusamus nam esse. Inventore hic vel sed.','2018-02-09 12:46:53','2018-02-09 12:46:53',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (12,'699ba5de5f6cfac217a0d0cf266f0aef.jpg','Lowell Fritsch','gerson91@rempel.com','$2y$10$RiPqyrBFhc/g2qupiaUhUudFPzDDFwWtldoz55hxk2S4m3.KSY/ea',NULL,'Pastry Chef','1-351-303-3742','784 Ashtyn Port\nEast Leannatown, LA 03105-2839','62908','British Virgin Islands','Eos et ipsa nihil maiores molestias sed voluptas. Eum voluptatem aliquam maxime voluptate architecto quia eos. Sit illum rerum quae totam velit.','2018-02-09 12:46:54','2018-02-09 12:46:54',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (13,'9ae9fadc4c06d57f1506b4ba2e30e524.jpg','Chris Bednar','keon.runolfsdottir@yahoo.com','$2y$10$MLUeXkSXPeLvaOniZAOkceFp6SbqLLLMbuHQDQOMknVuPCpCu92qO',NULL,'Hazardous Materials Removal Worker','1-554-256-8710 x770','11804 Zella Views Suite 266\nSengerville, OH 10095-0783','09634','Saint Kitts and Nevis','Atque ut qui est quia error. Voluptatum natus omnis facilis asperiores rem. Omnis eos dolor ea porro sunt fugiat.','2018-02-09 12:46:55','2018-02-09 12:46:55',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (14,'5df148544d3685d61d74cc4a684eac87.jpg','Celine Kautzer','maybelle.murazik@hotmail.com','$2y$10$zqNXb93rJqRvPW5vUlHDn.RgKGto8aBJfgRYer9NDi1xYen3S.yLm',NULL,'Precision Aircraft Systems Assemblers','(323) 730-0078 x71681','9488 Greg Mission Suite 857\nKiehnhaven, CO 21798-2335','53964','Czech Republic','Repellendus dolore neque repellat voluptatem sunt. Magni placeat corporis sunt vel. Reiciendis nihil nostrum omnis et ab. Similique nobis eligendi et molestiae repudiandae.','2018-02-09 12:46:57','2018-02-09 12:46:57',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (15,'5e7cc3194f2554f6ee9406b6d3c1819b.jpg','Dr. Parker Stark','albert41@gmail.com','$2y$10$50hViLUPbbNEGPrFmz.HHuHA2TJQfmJwxfFfjaAZ2/99jFVnbjEAy',NULL,'Paralegal','+1-734-755-0831','5161 Koch Loop\nWest Madysonberg, WV 09399','53462','Brazil','Excepturi est deserunt mollitia voluptas quia quas. Ab facere quisquam eius possimus alias ea. Aspernatur fugit magnam vel. Eveniet eos qui sit voluptatibus eaque similique est.','2018-02-09 12:46:58','2018-02-09 12:46:58',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (16,'78884c81df20b1076188e3fec050f518.jpg','Hilma Oberbrunner','xnolan@macejkovic.com','$2y$10$3ZWKmbmUkjbZRQqPxRzbyeDVWVn5fpCq8WypNZNZp365ZLAh/zSoG',NULL,'Athletic Trainer','1-320-419-2745 x5604','983 Murray Falls\nWest Harry, AK 70974-1927','76918-8816','Austria','Dignissimos mollitia consectetur molestias nihil veniam eaque. Odit ut ea fugiat qui ea unde. Sint ducimus alias fugiat excepturi voluptas voluptatum quo.','2018-02-09 12:46:59','2018-02-09 12:46:59',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (17,'064f69becc5cbeabbc0471580e8c2496.jpg','Ms. Marianna Christiansen','ole55@prohaska.com','$2y$10$puTYX0.XJxBdyCO3WYmf4eUbvJq9Wh4uRHV/hDL9aU5mbzGuzL4n.',NULL,'Arbitrator','(975) 851-6205 x92579','1300 Verdie Groves Apt. 178\nAufderharborough, MO 23547','78670-4395','Norway','Repellendus dolor cupiditate suscipit. Ut totam quibusdam ullam similique sint est. Amet similique incidunt nulla molestiae dolorem. Et nulla qui consequatur beatae itaque fuga recusandae.','2018-02-09 12:47:00','2018-02-09 12:47:00',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (18,'980255fd8b7366b474e1076b65c11267.jpg','Hadley Jerde','oschoen@lubowitz.com','$2y$10$XpI6d5I9R387g3VQytOB/Ob7ErPECDfiDlP57vvtH8YAYt.gKmvd.',NULL,'Railroad Inspector','393.559.4876 x39465','104 Dino Groves Apt. 971\nShannonland, OR 36918-0977','49633-5715','Gambia','Ut nisi quibusdam natus ut quo eos nihil dolorem. Quia qui debitis qui aliquam et maiores. Laudantium enim amet inventore in inventore aspernatur. Quidem non earum qui aliquam.','2018-02-09 12:47:02','2018-02-09 12:47:02',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (19,'801a3a870a55a38392cf64026cf30d74.jpg','Afton Nader','rempel.max@yahoo.com','$2y$10$Qt4rCTsvAuDZwTZ8.lFXqO9uwkulKJvtbjRePuJ.5WIUpBzsK1kRu',NULL,'Producers and Director','510-907-9723 x755','8780 Kling Parks\nSouth Devonhaven, WY 91672','30291','Gambia','Voluptates recusandae eum illum eum sit nostrum pariatur reiciendis. Voluptas quos exercitationem est necessitatibus ducimus. Nihil unde eos deleniti qui.','2018-02-09 12:47:03','2018-02-09 12:47:03',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (20,'082cc28e19811583484e34d150d8d662.jpg','Prof. Ila Dickens','mkoss@boehm.com','$2y$10$cemQ2QwgqGbY.ju2oz.dj.XCuiPO2zex/JGIz6pb9VopBwnK9NMdO',NULL,'Dancer','925.483.7595 x064','820 Abraham Trail Suite 055\nAlliemouth, NC 93914','00487','Ireland','Aut maiores molestiae molestiae fugit repellat. Atque ut iusto repellendus dolores in ut suscipit. Vitae quasi vitae quis sunt ut et corrupti qui. Impedit velit necessitatibus cum et.','2018-02-09 12:47:04','2018-02-09 12:47:04',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (21,'094d603f834b9cbac82a615e342efc88.jpg','Name Ferry','zjacobson@gmail.com','$2y$10$hxObMgUx9ZEN.Z9/vUeFS.BEMn4OT4Nw7V3PLA6oUC9UJsmqU2XZi',NULL,'Farm Equipment Mechanic','+13139939176','2216 Anderson Road Apt. 700\nEast Keegan, GA 70563','34529-1602','Christmas Island','Reprehenderit occaecati quaerat numquam facere. Aut accusamus sed cumque minus. Occaecati quia quia a.','2018-02-09 12:47:05','2018-02-09 12:47:05',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (22,'d87311a9d2eb0cd244c1b5e00255a991.jpg','Dr. Soledad Sauer MD','moriah55@stroman.com','$2y$10$k.y2CexpJ.0oJQ6898jKMernheF7WcCOSVM7eIoubnMZ/TnHvfRWO',NULL,'Forming Machine Operator','1-832-269-6271','18121 Kuhlman Neck\nMitchellmouth, LA 41408-8725','46903','Northern Mariana Islands','Impedit magnam in eaque quo minus expedita et. Dignissimos ut aut ut ipsam. Quia natus unde modi quisquam. Magnam aut est dolorem maiores. Maiores animi et delectus. Rerum repudiandae eos vel velit.','2018-02-09 12:47:07','2018-02-09 12:47:07',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (23,'664f5dd6c80af1c530443f65c0b0e6df.jpg','Horacio Hyatt','hilpert.roy@hintz.com','$2y$10$Gom9npCugAheimmnF7K4UetVH4wy2JiBDSLJStA6Geb1TFqUjws26',NULL,'Order Filler OR Stock Clerk','(284) 302-8632','7292 Murazik Cape\nNorth Santa, OR 84648-4293','05063-1592','Sao Tome and Principe','Architecto deserunt velit est omnis deleniti odit. Nulla et harum odit consequatur molestias deserunt voluptas. Illum voluptas atque est. Dolore quas laboriosam nemo vel repudiandae.','2018-02-09 12:47:08','2018-02-09 12:47:08',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (24,'33304d869bd00a45c3d4d77e8537e230.jpg','Dr. Milton Hodkiewicz Jr.','rubye.schaden@yahoo.com','$2y$10$iu26iPySL.nKckQ3MSRBbOft8UkhKyu53AGV8jPnH/mSaB/y/D2t2',NULL,'Conveyor Operator','1-232-991-9554','270 Kattie Groves Suite 065\nEasterbury, MS 33590','26286-1738','Gibraltar','Voluptatibus velit velit optio quia. Qui autem corporis debitis commodi fugiat expedita quos. Nam incidunt vero eveniet id rem necessitatibus et. Animi qui commodi architecto sint velit ea earum.','2018-02-09 12:47:09','2018-02-09 12:47:09',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (25,'622508364ac306a425213ba3be062e81.jpg','Nedra Lynch','trevor07@hotmail.com','$2y$10$ofdXtHSpkB9/RcN/1VwXPOyyNhg/5HpLc/GOs2PaDVeRnhiKznYBa',NULL,'Counsil','(754) 524-5175','7975 Nicolas Port Apt. 678\nYasmineshire, VT 54216-2342','74091-3249','Guatemala','Et qui sunt nesciunt ut. Temporibus velit et totam est odit porro culpa rerum. Doloremque recusandae consequatur voluptatem. Quae consequatur cum est sint.','2018-02-09 12:47:10','2018-02-09 12:47:10',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (26,'c45dc3d1f36fb5fa987a956ee7496d34.jpg','Jeffery Gutkowski','schultz.edward@gmail.com','$2y$10$dYyomF3jID47tsnxXi0kt.VcrWzy5e2udZGGvLqjy64.5tjbmxxMa',NULL,'Tool and Die Maker','603.730.2811 x327','604 Braden Crest\nNorth Talonville, VA 04769-1252','62488','Kazakhstan','Id omnis quia aut non. Adipisci sunt et error praesentium. Impedit numquam eum nulla dolor. Aut quod ut ut cupiditate earum qui sed. Non nisi voluptate voluptatibus.','2018-02-09 12:47:11','2018-02-09 12:47:11',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (27,'f1683f6733710062b83d827ecbbb7c93.jpg','Adela Mraz','marcia.kunde@gmail.com','$2y$10$UitZaF88y.z1w0hK/TDZd.VNgJi8jhj3QtUXWhF/SeoI1wAecT53K',NULL,'Corporate Trainer','962-285-4885 x187','7833 Toy Camp\nNorth Fletcherton, MA 06156','16074','Bahrain','Consectetur magni et nemo provident. Veniam quia ex eos dolor molestias nulla nihil ipsum. Doloribus doloribus odio delectus debitis rerum blanditiis non illo.','2018-02-09 12:47:13','2018-02-09 12:47:13',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (28,'d7874d080f34445a34e58ced7855820a.jpg','Delphia Stroman','hand.curt@gmail.com','$2y$10$dPd6MYXczqOsfKmzJQ4ble7SS6SGSLnob315HqgKPOifsFXq68wie',NULL,'Warehouse','(981) 382-2165 x770','1553 Gonzalo Forges Apt. 448\nSmithville, PA 62918','28846-6371','Iceland','Dolorem recusandae pariatur doloribus consequuntur voluptatibus est. Atque et sint perspiciatis et nesciunt voluptatem sunt in. Dignissimos eaque velit et molestiae velit ipsa explicabo.','2018-02-09 12:47:14','2018-02-09 12:47:14',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (29,'ed5c694d4784cc240d32ea2391e06ed8.jpg','Khalid Friesen DDS','johann49@hotmail.com','$2y$10$qd3JJGf6LDs2rsl7u1DjnOz/7TWDh7T8jsjL22OXEfWcwKcVwm7hC',NULL,'PR Manager','(904) 261-0350 x251','6395 Vernon Turnpike Apt. 103\nNorth Boydfurt, AZ 12957','37544-7933','South Georgia and the South Sandwich Islands','Error quae quia incidunt qui iste similique rerum. Aspernatur corporis voluptas repellat ipsam. Iure animi culpa est esse.','2018-02-09 12:47:15','2018-02-09 12:47:15',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (30,'35db0376ff69ea61b4545d63aa42e61e.jpg','Prof. Alda Daugherty','ogleason@gmail.com','$2y$10$YeSBqLXc2dN7HBu04.uFAuhQvELBHQVoKRk/fQwrgkEh2DcUyoAC2',NULL,'Central Office Operator','741-554-7864 x955','3347 Hipolito Ville Suite 613\nLeschville, NE 51215-8854','78020-8131','Lesotho','Eum assumenda aliquam eligendi omnis nisi molestias consequatur. Ut recusandae nisi reiciendis ex molestias libero. Eaque qui quia autem sunt fuga soluta. Qui exercitationem officia et.','2018-02-09 12:47:16','2018-02-09 12:47:16',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (31,'3a374430697e40ef7f5da2f962d87fdc.jpg','Darrin Jacobi','santino21@hotmail.com','$2y$10$eW9rGTjJT/2WczyIEWkfHOm2d4sK3gvJLs0IVRnpxTpkn.vd3DDcy',NULL,'Transportation Equipment Painters','1-325-303-6405','9113 Gerard Hollow\nErnserport, ID 91827-3727','25659','United States Minor Outlying Islands','Sit reiciendis quibusdam cum est. Earum sint optio recusandae voluptate aut. Corrupti culpa qui neque ipsum. Facere voluptatem eum architecto ipsam harum ducimus ut dolore.','2018-02-09 12:47:18','2018-02-09 12:47:18',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (32,'a04e155782091b8bf3731cb007a02475.jpg','Mr. Salvador Senger Jr.','rhoda.mohr@yahoo.com','$2y$10$4RcR7mpmqPa2gXIJ4b39OO8m2gXGCNMsUITuro3h7BdAvm0tatHc2',NULL,'Physical Therapist Assistant','393.648.8276 x08912','854 Quincy Crest Suite 898\nAlycetown, TX 54973','04469','Madagascar','Magnam facere fuga aliquam sed placeat deleniti. Debitis consequuntur iusto molestiae dolorem beatae. Nobis et magni fugit ducimus voluptatum quibusdam rerum.','2018-02-09 12:47:19','2018-02-09 12:47:19',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (33,'6bcf87f7b4180c08551a6fef07832842.jpg','Shea Eichmann','terry.felipa@gmail.com','$2y$10$JEoBxfdIZzIG2WqgBXi7beJPt1IRpL3diq9UFEYfoNiZvRQvFn/t.',NULL,'Secretary','438-607-5740','54012 Yost Dale Suite 619\nZulauftown, OK 84519','10414-2850','Egypt','Nobis perferendis possimus autem non. Placeat numquam dolorum doloribus repellat ut veritatis. Laborum non nobis beatae nisi et.','2018-02-09 12:47:21','2018-02-09 12:47:21',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (34,'4f15237385b6a170610d2fc8d52823df.jpg','Thelma Bartoletti','yweber@gorczany.biz','$2y$10$.eUaBV3532d4/avv9BEP3.IjzpmTAyM7p7qozOD.MujGmbxiHg5Te',NULL,'Travel Guide','+1 (794) 253-5224','1703 Monique Point\nAugustusmouth, WV 96541-6983','58096','Sierra Leone','Vel est expedita illo porro qui ut. Eligendi nihil sequi reprehenderit ad at incidunt soluta expedita. Quo quos voluptates nam at. Voluptatibus aliquid tempora sit eum. Velit architecto ad et itaque.','2018-02-09 12:47:22','2018-02-09 12:47:22',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (35,'28cf56198ac131778ac7e963844e0488.jpg','Kendra Wilderman Jr.','champlin.merle@cruickshank.net','$2y$10$kyiu45gvRlYcAw8SUf.0PeFNnw.mSNc277ssX1gI0yQvmDHnSh..m',NULL,'Agricultural Product Grader Sorter','914-467-9435 x19173','220 Keebler Meadow Apt. 924\nDaphneeshire, HI 71641-6044','87292-6964','Switzerland','Dolorum accusamus occaecati odio recusandae qui. Sunt magni consequatur libero. Distinctio dolor dolor velit aut sunt aperiam.','2018-02-09 12:47:23','2018-02-09 12:47:23',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (36,'3093afe5fbb815b7e2d188c087810f41.jpg','Winona Dicki','hbarton@sauer.com','$2y$10$.NsnWjgPAk9hHdlwrFAT0ueTq2tQe54s6wk3TAsm..jSo.l0JVE9.',NULL,'Bookbinder','1-386-702-5677 x212','4244 Schamberger Fords Apt. 117\nNaderborough, HI 57336','26449-1593','Suriname','Ipsam quod et excepturi repudiandae. Vitae ut et magnam nihil quis ut reiciendis. Rerum doloremque maiores voluptas dolorum quasi.','2018-02-09 12:47:25','2018-02-09 12:47:25',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (37,'4566c842480178fc3fffad4c2468880d.jpg','Prof. Jaunita Kris DVM','lharvey@yahoo.com','$2y$10$cOsZBWvAt0XMFr6zzwJqseTrKp9kBcBDSxHhULDenqTNvBUA2jwuO',NULL,'Funeral Attendant','917-368-8212','19025 Rashawn Neck\nBoehmmouth, TN 69148','96847','Kiribati','Eum iste asperiores dolor quisquam. Ducimus vero corporis similique fugit earum at. In non sint quo iste rerum quod.','2018-02-09 12:47:26','2018-02-09 12:47:26',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (38,'0428b0ad70bf1318c02ab3aaf4359ff6.jpg','Lia Thiel','mitchell.kreiger@yahoo.com','$2y$10$5hxiVMKbUKx9ZGJ3M1XrMOOebMrdukcUH.GP801EuJj1S9mmBHEJ.',NULL,'Gas Processing Plant Operator','356-642-8280 x4845','279 Rosamond Inlet Suite 782\nMoniqueland, MO 25744-3094','31205','Lithuania','Placeat fugit nobis est corrupti dignissimos. Fuga libero excepturi tempora est illum. Illum labore ut sit.','2018-02-09 12:47:27','2018-02-09 12:47:27',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (39,'14fabaa680aeba1b02caa422bccf256e.jpg','Max Lemke MD','kali.trantow@tillman.com','$2y$10$0ulpKfF1.QnwYWo7qvDoV.L.hpazI9TsbLZ4D0kPgKxw2u3cK7w0S',NULL,'Transportation Inspector','906-691-7247 x7569','9019 Octavia Ports Suite 452\nSouth Phyllisburgh, AL 77604-3560','32203','Nepal','Animi rem eligendi et non. Non qui et iure enim adipisci sed sint maiores.','2018-02-09 12:47:28','2018-02-09 12:47:28',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (40,'1e38d094898e30cf6a268658323e4a41.jpg','Valerie Runolfsson','omuller@aufderhar.biz','$2y$10$BxgrzwlstusIbGieSx7Wfu1wricVNavPhYDXOGiafpjeRqbeX135C',NULL,'Geological Sample Test Technician','892.377.8623 x733','2630 Vallie Forest\nDareport, ME 82635-5479','25526','Kuwait','Voluptatum quisquam beatae cumque possimus quae omnis rerum. Accusamus qui ipsum nesciunt facere et non. Vel libero dolores dicta non ipsam.','2018-02-09 12:47:29','2018-02-09 12:47:29',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (41,'0b56d8c4c007aee41df0bd42f5ffa010.jpg','Yasmin Prosacco','neal58@gmail.com','$2y$10$cPiTcAzj6WWbS2BamCJqUebFeIKoE8IfAUXY9Z5G0P5jodwooQCdq',NULL,'Product Specialist','1-293-909-9405','99461 Green Plaza Apt. 114\nSouth Elianmouth, VA 85841-3181','06696','Jamaica','Ab nemo quibusdam nemo laborum velit ab corporis. Asperiores ut aliquid fuga dolore. Tenetur pariatur autem unde illo nemo et.','2018-02-09 12:47:31','2018-02-09 12:47:31',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (42,'e96766bda84bc9d0d64a707987d4a7be.jpg','Lea Aufderhar','eliezer.jaskolski@hotmail.com','$2y$10$Tz1lzbcLhxQcbnEWH5a8Rebw7HhgZTm/2Syh4v4ajjvpJ4oQPYmre',NULL,'Healthcare Practitioner','309.587.5848 x30825','30442 O\'Connell Brooks Apt. 836\nCronaton, NM 60708','55070-6509','United Arab Emirates','Quia unde rem a ut ipsa ut alias. Eos molestiae et explicabo. Suscipit qui aspernatur nobis nostrum laudantium. Et voluptas quo rerum quia.','2018-02-09 12:47:32','2018-02-09 12:47:32',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (43,'e3158d6bf1159dc27dd022039ff32d52.jpg','Candace Brakus','georgiana.flatley@nitzsche.com','$2y$10$VHfrZ.6nCtK5lzldfLvmAORsTkC2xPDxjC9IYl5UfVw7moEXHg6WG',NULL,'Short Order Cook','1-990-871-1482 x07594','9927 Orn Forest Apt. 017\nSouth Isabelle, ME 50107-6123','65745-4958','Bhutan','Quis rerum dolor dolor eligendi iusto nostrum odio. Doloremque adipisci excepturi unde officiis natus praesentium. Fugit occaecati aut aut accusamus.','2018-02-09 12:47:33','2018-02-09 12:47:33',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (44,'c2fb9a189f631ff51545c5675c492ce0.jpg','Ms. Camylle Upton','nakia.fay@bruen.com','$2y$10$Vl58PeGO1ZusvxkLAenZp.z6lBPQjvP3fM9bAifEJTq5pHEonFq.i',NULL,'Maintenance Supervisor','395.687.4378 x848','82417 Orn Centers Apt. 026\nJadenmouth, AR 08016-6098','79824-6572','Iraq','Quisquam iste sed maiores iure aspernatur voluptas. Deleniti qui architecto esse vel porro ducimus cupiditate. In repellendus error eaque facilis sed numquam.','2018-02-09 12:47:34','2018-02-09 12:47:34',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (45,'0d9c444afed1f8a76bdf6365575d4fef.jpg','Elizabeth Kessler','lockman.jalen@feil.biz','$2y$10$SCG/dcOqfy3yUo74N0bi8.b5ogNpDtqvpvgA3CRujLraOahP23o0C',NULL,'Freight Inspector','1-481-232-8608 x265','9662 Wava Flat\nNew Liza, KY 71098-5841','51523','Burkina Faso','Consequatur porro repudiandae aperiam similique est tenetur recusandae. Ullam qui odio adipisci. Voluptas consequatur eos sunt amet vitae aliquid quis.','2018-02-09 12:47:35','2018-02-09 12:47:35',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (46,'8dc93d59ac02272d811f966000e85a85.jpg','Mr. Monserrat Mraz IV','jkohler@yahoo.com','$2y$10$r0c17aHlxK.VHpHcrfH3Pe0WJyOs8hY3lEUxaYIU5Hdp05VVeUe..',NULL,'Packaging Machine Operator','(453) 639-6611','602 McLaughlin Estate Apt. 867\nSouth Kyler, AZ 31914','45341-3784','Uganda','Aperiam in nisi atque sint voluptatem molestiae a. Et consequatur occaecati quidem harum. Nihil vero ipsum quibusdam est. Est laborum eum sed nostrum omnis eligendi.','2018-02-09 12:47:36','2018-02-09 12:47:36',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (47,'ffc53760c428856b36a8a5c1fbdd6344.jpg','Dr. Marguerite King','etha.baumbach@schaden.biz','$2y$10$cugu6Wwjia0RGc2Xi2ffc.1UiTPp0WkUfw3AZ1fVYnplwNApM.paO',NULL,'Electrical Power-Line Installer','502.802.4823','84638 Charity Fort\nColefort, AK 37005','27498-2734','Bosnia and Herzegovina','Accusamus accusantium hic tempora vel. Quo voluptas ut impedit omnis a ut rerum. Et aut quas debitis odio ea excepturi. Fugit et sint quibusdam est sequi earum omnis.','2018-02-09 12:47:37','2018-02-09 12:47:37',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (48,'d194c780ae8ee3f93e74f961e812ac36.jpg','Sarina Boehm','rbradtke@gmail.com','$2y$10$7q3ydy/5zjqRzfLnSwvJle7s4SuIO5b8cySFmighxlmjsEMUetOEi',NULL,'Database Manager','+1.636.631.1675','28183 Otilia Crossing Suite 761\nLake Ari, AK 98910-1594','52299-3700','Ireland','Inventore aspernatur veritatis et maiores quia ut. Esse et ducimus adipisci quo dignissimos fuga et. Nobis modi et aspernatur molestiae consectetur.','2018-02-09 12:47:38','2018-02-09 12:47:38',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (49,'78329fbdd9ccb33ce262592b397e8af7.jpg','Jimmie Nienow','scottie15@yahoo.com','$2y$10$dDoXyiZ6JXhczop/hMcou.l8FG1zVPud1qlJrH6aoEAYWuS75rGKC',NULL,'Stone Cutter','(540) 357-1821','48059 Hayes Circles Suite 249\nJazmynberg, NH 87568','42577','Norway','Quam in ut odio atque accusantium necessitatibus aut possimus. Natus sit quia mollitia.','2018-02-09 12:47:39','2018-02-09 12:47:39',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (50,'d094f9d0f8fb92aedc51278a9ae13862.jpg','Pansy Lebsack','germaine.mann@connelly.net','$2y$10$Eo2N5hyU1EjCmGsXT3cqvOV3yhlfeOZVOucgeSuBDaO32RqUq7aGi',NULL,'Ship Captain','(729) 588-1131 x92350','68595 Johnny Path\nSouth Veda, DC 25213','69062-9475','American Samoa','Et similique repudiandae non dignissimos vel. Assumenda qui neque consequuntur dolor. Nihil quo voluptatibus est fugiat quo omnis. Quasi aut esse voluptatibus nobis ut et cumque doloribus.','2018-02-09 12:47:40','2018-02-09 12:47:40',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (51,'bb71cbef2f9c26f111647a34428393e4.jpg','Jamie Adams','nikolaus.kelli@bahringer.net','$2y$10$dOwX58rsy/YUsQulaVxnyuAtAj3SbRMgZqhMhQ5dDN2kA7RoYD3YG',NULL,'Molder','1-535-666-6283 x03811','4896 Morar Pike\nKeatonfurt, FL 79873','03175','Uruguay','Eveniet odio impedit nihil et. At sit dicta alias maxime sed aut.','2018-02-09 12:47:42','2018-02-09 12:47:42',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (52,'14e40b1ae146c50db116b7d021ca4580.jpg','Alejandrin Shanahan','gracie.cronin@vonrueden.biz','$2y$10$.Uu.NLE1y1xb2x61gSGA0.NVjXA/OdiqQudmz7o0/F2u917t9htRe',NULL,'Industrial-Organizational Psychologist','475-412-4020 x276','503 Brakus Plains\nGusikowskibury, AR 62431','85361','Bouvet Island (Bouvetoya)','Sed eum sunt labore excepturi deleniti vel est. Et iure fugit temporibus nulla libero. Illo ipsam ut ea reprehenderit.','2018-02-09 12:47:43','2018-02-09 12:47:43',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (53,'61d58c0746bf3ed1c6bdf9202357f9e7.jpg','Mrs. Pascale Cole','devyn.dach@yahoo.com','$2y$10$clWxn4XtfLvVwTr7J2DAheMveZssb7zhjrvqx/r1zCYWuQNaT3HLq',NULL,'Social and Human Service Assistant','753-244-2944','9497 Ruth Manors Suite 681\nSalmamouth, SD 30315-4447','20642-6572','Saudi Arabia','Beatae ab omnis doloremque tempora ipsa quo dolorem. Aut eos quia autem amet natus. Doloribus eos rerum maxime aut tempore iure sit velit.','2018-02-09 12:47:44','2018-02-09 12:47:44',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (54,'98d2b8842e4c69b1405c319a41bc5c27.jpg','Mrs. Marilie Mueller','dtrantow@yahoo.com','$2y$10$KKBRXlCeV/pa4LOlsRuq2eVnONHBMkMOB1hFDvCwcFD6ywDyvHIbS',NULL,'Elevator Installer and Repairer','+1-297-682-5228','43659 Daisha Station Suite 144\nLake Jazminside, UT 51240','65792-4655','Pitcairn Islands','Repellat in cum dolore minus rerum. Soluta maiores ea provident molestiae impedit in.','2018-02-09 12:47:45','2018-02-09 12:47:45',1);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (55,NULL,'Manish Kumar','kmanish3110@gmail.com','$2y$10$Sq0fwSlHQRiMrDDvM072POTZlyQUWEx7XA3RODlm58CS1t6AIKxeK',NULL,'WebDeveloper','9898989898','9898989898','989898','India','Test','2018-02-09 15:03:19','2018-02-09 15:07:28',0);
+insert  into `app_users`(`id`,`picture`,`name`,`email`,`password`,`remember_token`,`designation`,`phone`,`address`,`postal_code`,`country`,`description`,`created_at`,`updated_at`,`is_verified`) values (56,NULL,'Test Test','test@test.com','$2y$10$tpy00APYc4NbJ36amoe./OoahB9s0xDg43uTJcOFf1K1rklasHvlu',NULL,'Test',NULL,'9898989898','989898','India','Test','2018-02-09 15:08:09','2018-02-09 15:08:09',0);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `app_user_verifications`
---
-
-CREATE TABLE `app_user_verifications` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `app_migrations`
---
-ALTER TABLE `app_migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `app_password_resets`
---
-ALTER TABLE `app_password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indexes for table `app_products`
---
-ALTER TABLE `app_products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `app_users`
---
-ALTER TABLE `app_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- Indexes for table `app_user_verifications`
---
-ALTER TABLE `app_user_verifications`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_verifications_user_id_foreign` (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `app_migrations`
---
-ALTER TABLE `app_migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `app_products`
---
-ALTER TABLE `app_products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
---
--- AUTO_INCREMENT for table `app_users`
---
-ALTER TABLE `app_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
---
--- AUTO_INCREMENT for table `app_user_verifications`
---
-ALTER TABLE `app_user_verifications`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `app_user_verifications`
---
-ALTER TABLE `app_user_verifications`
-  ADD CONSTRAINT `user_verifications_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `app_users` (`id`) ON DELETE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
