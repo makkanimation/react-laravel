@@ -35,7 +35,7 @@ export default class ToggleComponent extends React.Component{
                 <a className="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#" onClick={this.toggleSettings}>Settings <span className="caret"></span></a>
                 <ul className="dropdown-menu" role="menu"  style={this.state.settingStyle} >
                     <li><Link  to={'/profile/'+this.props.uID }  className="nav-link">View Profile</Link></li>
-                    <li><Link to={'/users/edit/'+this.props.uID} className="nav-link">Edit</Link></li>
+                    <li><Link to={'/user/edit/'+this.props.uID} className="nav-link">Edit</Link></li>
                     <li><a href="#" >Delete</a></li>
                 </ul>
             </div>

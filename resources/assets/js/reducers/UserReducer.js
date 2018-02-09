@@ -23,7 +23,9 @@ export default function User(state=defaultState,action){
                     total:action.data.total,
                     total_pages:action.data.last_page,
                     data:action.data.data,
-                }
+                },
+                type:'',
+                msg:''
             })
         case 'CREATE_USER'+RECV_DATA:
             return Object.assign({},state,{
@@ -42,9 +44,10 @@ export default function User(state=defaultState,action){
                 singleUser: action.data
         })
         case 'EDIT_USER'+RECV_DATA:
+        console.log('Edit Sucess')
         return Object.assign({},state,{
-                    type:ALERT_SUCCESS,
-                    msg:'User updated Sucessfully.',
+            type:ALERT_SUCCESS,
+            msg:'User updated Sucessfully.',
         })
         case 'EDIT_USER'+RECV_ERROR:
         return Object.assign({},state,{

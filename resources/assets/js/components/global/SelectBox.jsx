@@ -7,19 +7,16 @@ export default class SelectBox extends React.Component {
   }
   
   render() {
-    
     return (
-        [
-          this.props.addLabel && <label><b>{this.props.label}</b></label>,
-           <select  
+        this.props.addLabel && <label><b>{this.props.label}</b></label>,
+          <select  defaultValue={this.props.selValue} 
           name={this.props.name}
           onChange= {this.handleChange} >
             <option value={this.props.placeHolder}>{this.props.placeHolder}</option>
             {this.props.option.map(opt=>
-              <option value={opt}>{opt}</option>
+              <option value={opt} >{opt}</option>
             )}
           </select>
-        ]
     );
   }
 }
@@ -28,11 +25,13 @@ SelectBox.defaultProps = {
   clsName: 'input',
   addLabel: true,
   placeHolder: 'Select',
-  idName: ''
+  idName: '',
+  selValue: ''
 };
 
 SelectBox.propTypes = {
   name : PropTypes.string.isRequired,
+  selValue : PropTypes.string,
   clsName: PropTypes.string,
   idName: PropTypes.string,
   label: PropTypes.string,

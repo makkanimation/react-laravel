@@ -23,10 +23,70 @@ class AuthController extends Controller
     public function user($user)
     {
 		$imgUrl					= url('/storage/images');
-		$array 					= User::select(array(DB::raw('concat("'.$imgUrl.'/",picture) AS avatar'),'name','email','id'))->where('id',$user)->first(); 
+		$array 					= User::select(array(DB::raw('concat("'.$imgUrl.'/",picture) AS avatar'),'name','email','id','designation','phone','address','postal_code','country','description'))->where('id',$user)->first(); 
 		return $array;
     }
 	
+	public function update(Request $request,$user)
+    {
+        //dd($request->name);
+		$userArray = User::find($user);
+		
+		$userArray->name = $request->name;
+		$userArray->designation = $request->designation;
+		$userArray->email = $request->email;
+		$userArray->phone = $request->phoneno;
+		$userArray->address = $request->address;
+		$userArray->postal_code = $request->zip;
+		$userArray->country = $request->country;
+		$userArray->description = $request->selfDescription;
+		
+		$userArray->save();
+		// $validator = Validator::make($request->all(), [
+            // 'title' => 'required|unique:posts|max:255',
+            // 'body' => 'required',
+        // ]);
+
+        // if ($validator->fails()) {
+            // return redirect('post/create')
+                        // ->withErrors($validator)
+                        // ->withInput();
+        // }
+		
+		// $product->update($request->all());
+ 
+        return response()->json($userArray, 200);
+    }
+ 
+	public function store(Request $request)
+    {
+		$name = $request->name;
+		$designation = $request->designation;
+		$email = $request->email;
+		$phoneno = $request->phoneno;
+		$address = $request->address;
+		$postal_code = $request->zip;
+		$country = $request->country;
+		$description = $request->selfDescription;
+		$password = str_random(8);
+		$user = User::create(['name' => $name, 'email' => $email, 'designation' => $designation, 'password' => Hash::make($password), 'phone' => $phoneno, 'address' => $address, 'postal_code' => $postal_code, 'country' => $country, 'description' => $description]);
+		// $validator = Validator::make($request->all(), [
+            // 'title' => 'required|unique:posts|max:255',
+            // 'body' => 'required',
+        // ]);
+
+        // if ($validator->fails()) {
+            // return redirect('post/create')
+                        // ->withErrors($validator)
+                        // ->withInput();
+        // }
+		
+		// $product->update($request->all());
+ 
+        return response()->json($user, 200);
+    }
+ 
+
 	/**
      * API Register
      *

@@ -17,8 +17,7 @@ export default class TextArea extends React.Component {
   render() {
     let ele = []
     return (
-        [
-			this.props.addLabel && <label><b>{this.props.label}</b></label>,
+      this.props.addLabel && <label><b>{this.props.label}</b></label>,
 			<textarea 
 			name={this.props.name}
 			rows={this.props.rows}
@@ -27,8 +26,6 @@ export default class TextArea extends React.Component {
 			datadiv={this.props.datadiv}
 			placeholder={this.props.placeHolder}
 			>{this.state.value}</textarea>
-        ]
-        
     );
   }
 }

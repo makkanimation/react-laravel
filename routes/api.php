@@ -16,6 +16,8 @@ Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@login');
 Route::post('recover', 'AuthController@recover');
 Route::get('user/{id}', 'AuthController@user'); 
+Route::put('user/{id}','AuthController@update');
+Route::post('user','AuthController@store');
 Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('logout', 'AuthController@logout');
     Route::get('test', function(){

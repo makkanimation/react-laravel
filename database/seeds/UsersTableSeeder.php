@@ -20,8 +20,14 @@ class UsersTableSeeder extends Seeder
                 'picture' => $faker->image('public/storage/images',400,300, null, false) ,
                 'name' => $faker->name,
                 'email' => $faker->email,
+                'designation' => $faker->jobTitle,
+                'phone' => $faker->phoneNumber,
+                'address' => $faker->address,
+                'postal_code' => $faker->postcode,
+                'country' => $faker->country,
+                'description' => $faker->text,
                 'password' => bcrypt('secret'),
-				'is_verified' => 1
+				'is_verified' => 1 
             ]);
         }
     }

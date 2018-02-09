@@ -14,12 +14,19 @@ class CreateUserContainer extends React.Component{
         e.preventDefault();
        // return false;
         let fn = fetchData(
-            'https://reqres.in/api/users', 
+            'user', 
             'CREATE_USER', 
             'POST', 
             {
-              "name": e.target.fname.value+' '+e.target.lname.value,
-              "job": e.target.designation.value
+                "name": e.target.fname.value+' '+e.target.lname.value,
+                "designation": e.target.designation.value,
+                "email": e.target.email.value,
+                "phoneno": e.target.phoneno.value,
+                "address": e.target.address.value,
+                "zip": e.target.zip.value,
+                //"gender": e.target.gender.value,
+                "country": e.target.country.value,
+                "selfDescription": e.target.selfDescription.value,
             } 
           );
           //console.log(fn);

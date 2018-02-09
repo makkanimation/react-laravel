@@ -11,16 +11,13 @@ export default class UploadPic extends React.Component {
 
   render() {
     return (
-        [
-          <div className="col-md-3">
+        <div className="col-md-3">
             <div className="text-center">
             <Image srcUrl={this.props.srcUrl} clsName="avatar img-circle" altName="avatar" />
             <h6>{this.props.uploadText}</h6>
             <FileInput/>
             </div>
           </div>
-        ]
-        
     );
   }
 }
