@@ -91,7 +91,7 @@ export default class LoginComponent extends React.Component{
                         <Input label="Password" inputType="password" placeHolder="Enter Password" name="password" RequiredField={true} autoComplete={false} />
                         <CheckBoxOrRadio option={['Remember me']} name='gender' inputType='checkbox' />
                         <div className="clearfix">
-                        <Button inputType="submit" clsName="signupbtn" name="login" value="Login" submitFunction={this.validate} />
+                        <Button inputType="submit" clsName="signupbtn" name="login" value="Login" submitFunction={this.validate} disabled={this.props.disabled}/>
                         </div>
                     </div>
                     </form>
@@ -105,7 +105,8 @@ export default class LoginComponent extends React.Component{
 LoginComponent.defaultProps = {
     isLoggedIn:false,
     emailCodeDisplay:'none',
-    emailError:''
+    emailError:'',
+    disabled:true,
 }
 
 LoginComponent.propTypes = {
@@ -114,5 +115,6 @@ LoginComponent.propTypes = {
     emailError:PropTypes.string,
     emailCodeDisplay:PropTypes.string,
     status:PropTypes.string,
-    msg:PropTypes.string
+    msg:PropTypes.string,
+    disabled:PropTypes.bool
 }

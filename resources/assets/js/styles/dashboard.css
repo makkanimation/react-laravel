@@ -184,3 +184,8 @@ img {
 }
 
 .error { border: 1px solid red !important; }
+
+button:disabled {
+    background: #dddddd;
+	cursor: not-allowed;
+}
